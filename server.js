@@ -1,10 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+//connessione con il database
+const connection = require('./database/db.js')
 
 const PORT = process.env.PORT || 3000;
 
-/////Middleware
+/////Middleware/////
 
 //middleware per cors
 app.use(cors(
@@ -27,11 +29,20 @@ app.listen(PORT, () => {
 const serverError = require("./middlewares/serverError");
 const notFound = require("./middlewares/404_notFound");
 
-
 //Routes
-
 app.get('/', (req, res) => {
     res.send('Server Movies Online')
+})
+
+//route per lista di film
+app.get('/api/v1/movies', (req, res) => {
+    res.json({ message: 'Lista dei film' })
+})
+
+//route per singolo film
+app.get('/api/v1/movies/:id', (req, res) => {
+    const { id } = req.params
+    res.json({ message: `Film con id: ${id}` })
 })
 
 app.use(serverError)
