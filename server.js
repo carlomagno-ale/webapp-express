@@ -5,10 +5,12 @@ const app = express();
 const connection = require('./database/db.js')
 //router
 const MoviesRouter = require('./routes/movies.js')
-//porta
+//start server
 const PORT = process.env.PORT || 3000;
 
-/////Middleware/////
+app.listen(PORT, () => {
+    console.log(`Server is running at http://localhost:${PORT}`);
+});
 
 //middleware per cors
 app.use(cors(
@@ -22,10 +24,6 @@ app.use(express.json());
 
 // static assets middleware permette al server Express di accedere e distribuire i file ai client 
 app.use(express.static('images'));
-
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
-});
 
 //middleware per errori
 const serverError = require("./middlewares/serverError");
