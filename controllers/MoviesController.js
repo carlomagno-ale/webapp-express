@@ -27,8 +27,6 @@ function show(req, res) {
         connection.query(sqlReviews, [id], (err, reviews) => {
             if (err) return res.status(500).json({ error: err.message })
             movie.reviews = reviews
-            console.log(movie.reviews);
-
             res.json(movie)
 
         })
