@@ -23,7 +23,7 @@ app.use(cors(
 app.use(express.json());
 
 // static assets middleware permette al server Express di accedere e distribuire i file ai client 
-app.use(express.static('images'));
+app.use(express.static('public'));
 
 //middleware per errori
 const serverError = require("./middlewares/serverError");
