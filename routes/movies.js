@@ -7,4 +7,7 @@ router.get('/', MoviesController.index)
 //route per singolo film
 router.get('/:id', MoviesController.show)
 
+//route per recensione
+router.post('/:id/review', MoviesController.storeReview)
+
 module.exports = router;
