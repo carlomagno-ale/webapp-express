@@ -34,7 +34,7 @@ function show(req, res) {
     })
 }
 
-// store a movie review
+/*// store a movie review
 function storeReview(req, res) {
 
     const id = Number(req.params.id)
@@ -50,10 +50,10 @@ function storeReview(req, res) {
         res.status(201).json({ message: 'Recensione aggiunta', reviewId: results.insertId })
     })
 
-}
+}*/
 
 module.exports = {
     index,
     show,
-    storeReview,
+    //storeReview,
 }
